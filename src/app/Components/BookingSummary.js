@@ -12,8 +12,11 @@ function BookingSummary() {
       .then((response) => setBookings(response.data))
       .catch((error) => console.error(error));
   }, []);
-  console.log("book",bookings.name);
 
+
+ if (!bookings || bookings.length === 0) {
+    return <p>No booking details available.</p>;
+  }
 
   return (
     <div className="flex justify-center items-center w-full flex-col gap-4 mt-8">
